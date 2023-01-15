@@ -10,7 +10,7 @@
 html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background-color: var(--bg);
     color: var(--maintxt);
 }
@@ -51,15 +51,15 @@ a{
 #border{
     position: fixed;
     width: 97vw;
-    height: 97vh;
+    height: 100vh;
     left: 1.5vw;
+    bottom: 3vh;
     background-color: transparent;
-    box-shadow: 0 0 1em #00000025;
-    border-radius: 3em;
+    box-shadow: 0 0 0.5em var(--postborder);
+    border-radius: 5em;
 }
 /* NAV */
 header{
-    font-family: 'Raleway', sans-serif;
     position: fixed;
 }
 nav > ul{
@@ -70,7 +70,9 @@ nav > ul{
     width: 100vw;
     height: 10vh;
     background: rgb(245,245,245);
-    background: linear-gradient(180deg, rgba(245,245,245,1) 30%, rgba(245,245,245,1) 70%, rgba(0,212,255,0) 100%); 
+    background: linear-gradient(180deg, #f5f5f5 0%,#f5f5f559 50%, #ffffff00 100%); 
+    mask: linear-gradient(black, black, transparent);
+    backdrop-filter: blur(3px);
     z-index: 1;
     top: 0;
 }
@@ -88,13 +90,14 @@ nav > ul{
     color: var(--maintxt);
 }
 #nav-title{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 2.1em;
     font-weight: 700;
 }
 
 .nav-items > li{
-    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
     font-size: 1.3em;
     margin: 1.4em 0;
     transition: 0.3s;
@@ -133,12 +136,12 @@ nav > ul{
 }
 .hero> h1{
     animation: fadeInUp 1s;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 10em;
     font-weight: 700;
 }
 .hero> h2{
-    animation: fadeInBottom 1s;
+    animation: fadeInBottom 1.3s;
     font-family: 'Raleway', sans-serif;
     font-size: 3em;
     text-align: right;
@@ -155,7 +158,7 @@ nav > ul{
     width: 50%;
     margin: 10vh 0 2vh 13vw;
     font-size: 1.5em;
-    font-weight: 400;
+    font-weight: 700;
 }
 .blog-posts{
     display: grid;
@@ -171,7 +174,7 @@ nav > ul{
     padding: 3rem;
     margin: 2rem;
     color: var(--maintxt);
-    border-left: 0.15em solid var(--postborder);
+    box-shadow: -0.2em 0 0 var(--postborder);
 }
 .post h2{
     margin: 0em 0em 1em 0em;
@@ -201,11 +204,11 @@ margin: auto;
     line-height: 2em;
     text-align: left;
     background-color: var(--subbg);
-    box-shadow: 0em 0em 1em #0000000e;
+    box-shadow: -0.15em 0em 0em var(--postborder);
     padding: 3rem;
-    width: 40vw;
+    width: 45vw;
     top: 30vh;
-    left: 42vw;
+    left: 36.7vw;
 }
 
 #about-title{
@@ -213,14 +216,59 @@ margin: auto;
     animation: fadeInUp 1s;
     text-align: center;
     margin: 0 0 1em 0;
+    font-weight: 700;
 }
 /* ABOUT ME */
+
+/* PROJECTS */
+.projects>h2{
+    position: absolute;
+    animation: fadeInUp 0.7s;
+    text-align: center;
+    width: 50%;
+    top: 10vh;
+    left: 35vw;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.projects>ul{
+    position: absolute;
+    display: grid;
+    width: 47%;
+    top: 18vh;
+    left:36.5vw;
+    grid-template-columns: 1fr;
+    row-gap: 2vh;
+}
+.projects>ul>a>li{
+    animation: fadeInLeftDelay 0.7s;
+    background-color: var(--subbg);
+    padding: 8vh 0 0 0;
+    color: var(--maintxt);
+    font-size: 2em;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 30vh;
+    transition: 0.2s;
+}
+.projects>ul>a>li:hover{
+    box-shadow: 0em 0.2em 0em #0000002c;
+    transform: translateY(-0.2em);
+}
+.projects>ul>a>li>p{
+    margin: 4vh 7vw 6vh;
+    font-size: 0.7em;
+}
+
+/* PROJECTS */
 
 /* ANIMATION */
 @keyframes fadeInUp{
     0%{
         opacity: 0;
-        transform: translateY(5em);
+        transform: translateY(3em);
     }
     70%{
         opacity: 0;
@@ -234,10 +282,10 @@ margin: auto;
 @keyframes fadeInBottom{
     0%{
         opacity: 0;
+        transform: translateY(-3em);
     }
     70%{
         opacity:0;
-        transform: translateY(-0.5em);
     }
     100%{
         opacity: 1;
@@ -263,7 +311,7 @@ margin: auto;
         opacity: 0;
     }
     50%{
-        transform: translateX(-10em);
+        transform: translateX(-3em);
     }
     70%{
         opacity:0;
