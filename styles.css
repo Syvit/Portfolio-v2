@@ -78,7 +78,7 @@ nav > ul{
 }
 .nav-container{
     top: 0;
-    margin: 35vh 10vw 0 10vw;    
+    margin: 35vh 10vw 0 12vw;    
     display: flex;
     flex-direction: column;
     background-color: transparent;
@@ -190,7 +190,7 @@ nav > ul{
     margin: 3em 0;
 }
 .post > table{
-margin: auto;
+    margin: auto;
 }
 
 /* BLOG */
@@ -324,7 +324,7 @@ margin: auto;
 /* ANIMATION */
 
 /* SCREEN SIZE */
-@media screen and (min-width: 1530px){
+@media only screen and (max-width: 1530px){
     .projects>h2{
         left: 40vw;
     }
@@ -348,4 +348,209 @@ margin: auto;
         font-size: 2.5em;
     }
 }
+
+@media only screen and (max-width: 1100px){
+    #border-bottom{
+        display: none;
+    }
+    
+    #border{
+        display: none;
+    }
+    #site-mask{
+        position:fixed;
+        width: 100vw;
+        height: 20vh;
+        background: rgb(245,245,245);
+        background: linear-gradient(180deg, #f5f5f5 0%,#f5f5f559 50%, #ffffff00 70%); 
+        mask: linear-gradient(black, black, transparent);
+        backdrop-filter: blur(5px);
+        z-index: 0;
+        top: 0;
+    }
+    .nav-container{
+        position: fixed;
+        z-index: 1;
+        margin: 1vh 0 1vh auto;    
+        display: flex;
+        height: 10vh;
+        width: 100vw;
+        align-items: center;
+    }
+    .nav-container>ul>li>a{
+        color: var(--maintxt);
+    }
+    #nav-title{
+        font-family: 'DM Sans', sans-serif;
+        font-size: 3em;
+        font-weight: 700;
+        margin-bottom: 2vh;
+    }
+    
+    .nav-items > li{
+        float: left;
+        margin: 0 1em 0 1em;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+        font-size: 1.5em;
+        transition: 0.3s;
+        width: fit-content;
+    }
+    .hero{
+        position: absolute;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100vw;
+        margin: 40vh auto;
+        text-align: center;
+    }
+    .hero> h1{
+        animation: fadeInUp 1s;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 7em;
+        font-weight: 700;
+    }
+    .hero> h2{
+        animation: fadeInBottom 1.3s;
+        font-family: 'Raleway', sans-serif;
+        font-size: 3em;
+        text-align: center;
+        font-weight: 200;
+        color: var(--lnktxt);
+    }
+    #blog-title{
+        text-align: center;
+        width: 50%;
+        margin: 20vh auto 2vh auto;
+        font-size: 1.8em;
+        font-weight: 700;
+    }
+    .blog-posts{
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .post{
+        animation: fadeInLeftDelay 0.7s;
+        line-height: 2em;
+        background-color: var(--subbg);
+        padding: 3rem;
+        margin: 2rem;
+        color: var(--maintxt);
+        box-shadow: -0.2em 0 0 var(--postborder);
+        font-size: 1.2em;
+    }
+    .post h2{
+        margin: 0em 0em 1em 0em;
+    }
+    .post a{
+        color: var(--lnktxt);
+    }
+    .about-me{
+        font-size: 1.3em;
+        line-height: 2em;
+        text-align: center;
+        background-color: var(--subbg);
+        box-shadow: -0.2em 0em 0em var(--postborder);
+        width: 90vw;
+        left: 5vw;
+    }
+    .projects>h2{
+        width: 100%;
+        top: 20vh;
+        left: 0vw;
+        font-size: 1.8em;
+        font-weight: 700;
+        text-align: center;
+    }
+    .projects>ul{
+        position: absolute;
+        display: grid;
+        width: 90%;
+        top: 30vh;
+        left: 5vw;
+        grid-template-columns: 1fr;
+        row-gap: 2vh;
+    }
+    .socials{
+        display: none;
+    }
+}
+@media only screen and (max-width: 600px){
+        #border-bottom{
+            display: none;
+        }
+        
+        #border{
+            display: none;
+        }
+        #site-mask{
+            position:fixed;
+            width: 100vw;
+            height: 20vh;
+            background: rgb(245,245,245);
+            background: linear-gradient(180deg, #f5f5f5 0%,#f5f5f559 50%, #ffffff00 70%); 
+            mask: linear-gradient(black, black, transparent);
+            backdrop-filter: blur(5px);
+            z-index: 0;
+            top: 0;
+        }
+        .nav-container{
+            position: fixed;
+            z-index: 1;
+            margin: 1vh 0 1vh auto;    
+            display: flex;
+            height: 10vh;
+            width: 100vw;
+            align-items: center;
+        }
+        .nav-container>ul>li>a{
+            color: var(--maintxt);
+        }
+        #nav-title{
+            font-size: 2em;
+            margin: 3vh 0 0 0;
+        }
+        
+        .nav-items > li{
+            margin: 1em 0.5em;
+            font-size: 1.3em;
+
+        }
+
+        .hero> h1{
+            animation: fadeInUp 1s;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 5em;
+            font-weight: 700;
+        }
+        .hero> h2{
+            font-size: 2em;
+            font-weight: 300;
+        }
+        #blog-title{
+            width: 100%;
+            font-size: 1.5em;
+        }
+
+        .post{
+            font-size: 1em;
+            padding: 1em;
+        }
+
+        .about-me{
+            font-size: 1em;
+        }
+        .projects>h2{
+            font-size: 1.5em;
+        }
+        .projects>ul{
+            top: 26vh;
+        }
+        .socials{
+            display: none;
+        }
+    }
 /* SCREEN SIZE */
