@@ -322,3 +322,30 @@ margin: auto;
     }
 }
 /* ANIMATION */
+
+/* SCREEN SIZE */
+@media screen and (min-width: 1530px){
+    .projects>h2{
+        left: 40vw;
+    }
+    .projects>ul{
+        left:41.5vw;
+    }
+    .about-me{
+        top: 25vh;
+        left: 41.7vw;
+    }
+    .blog-posts{
+        margin: 0 0 0 40vw;
+    }
+    .hero{
+        margin: 35vh 0 0 45vw;
+    }
+    .hero>h1{
+        font-size: 8em;
+    }
+    .hero>h2{
+        font-size: 2.5em;
+    }
+}
+/* SCREEN SIZE */
