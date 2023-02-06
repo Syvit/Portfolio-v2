@@ -1,18 +1,37 @@
-:root {
+:root.dark {
+    --bg: #131a25;
+    --subbg: #141c29;
+    --bg-gradient: linear-gradient(180deg, #131a25 0%,#131a2552 50%, #ffffff00 100%); 
+    --header: #131a25e5;
+    --lnktxt: #3da8ff;
+    --lnktxthover: hsl(234, 100%, 56%);
+    --postborder: #dddddd36;
+    --maintxt: #DDDDDD;
+    --lnkvisited: #a7dcff;    
+}
+:root.light {
     --bg: #f5f5f5;
     --subbg: #eeeeee63;
+    --bg-gradient: linear-gradient(180deg, #f5f5f5 0%,#f5f5f559 50%, #ffffff00 100%);
     --header: #AB987A;
     --lnktxt: #FF533D;
-    --lnktxthover:#e74d39;
+    --lnktxthover:#ff1e00;
     --postborder: #0f16262f;
-    --maintxt: #0f1626d5;
+    --maintxt: #0f1626;
+    --lnkvisited: #ff9f92;
 }
+
 html {
     box-sizing: border-box;
     font-size: 16px;
     font-family: 'DM Sans', sans-serif;
     background-color: var(--bg);
     color: var(--maintxt);
+}
+
+::selection{
+    color: var(--bg);
+    background-color: var(--lnktxt);
 }
 
 /* RESET */
@@ -38,9 +57,11 @@ img {
 
 a{
     text-decoration: none;
+    user-select: all;
 }
 
 #border-bottom{
+    z-index: -1;
     width: 100vw;
     height: 3vh;
     top: 97vh;
@@ -49,14 +70,15 @@ a{
 }
 
 #border{
+    z-index: -1;
     position: fixed;
     width: 97vw;
-    height: 100vh;
+    height: 105vh;
     left: 1.5vw;
     bottom: 3vh;
     background-color: transparent;
     box-shadow: 0 0 0.5em var(--postborder);
-    border-radius: 5em;
+    /* border-radius: 5em; */
 }
 /* NAV */
 header{
@@ -70,7 +92,7 @@ nav > ul{
     width: 100vw;
     height: 10vh;
     background: rgb(245,245,245);
-    background: linear-gradient(180deg, #f5f5f5 0%,#f5f5f559 50%, #ffffff00 100%); 
+    background: var(--bg-gradient);
     mask: linear-gradient(black, black, transparent);
     backdrop-filter: blur(3px);
     z-index: 1;
@@ -78,24 +100,31 @@ nav > ul{
 }
 .nav-container{
     top: 0;
-    margin: 35vh 10vw 0 12vw;    
+    margin: 32vh 10vw 0 12vw;    
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    color: var(--maintxt);
     height: 100vh;
     width: 20em;
 }
-.nav-container>ul>li>a{
+.nav-items>li>a{
     color: var(--maintxt);
 }
-#nav-title{
+
+#nav-title>li>a{
     font-family: 'DM Sans', sans-serif;
     font-size: 2.1em;
-    font-weight: 700;
+    font-weight: 500;
+    color: var(--maintxt);
+    transition: 0.2s;
+}
+
+#nav-title>li>a:hover{
+    color: var(--lnktxt);
 }
 
 .nav-items > li{
+    cursor: pointer;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 1.3em;
@@ -103,7 +132,9 @@ nav > ul{
     transition: 0.3s;
     width: fit-content;
 }
+.theme-toggle{
 
+}
 .nav-items > li:hover{
     box-shadow: 0em 0.1em 0em var(--lnktxt);
     transform: translateY(-0.1em);
@@ -139,13 +170,14 @@ nav > ul{
     font-family: 'DM Sans', sans-serif;
     font-size: 10em;
     font-weight: 700;
+    padding: 0em 0em;
 }
 .hero> h2{
     animation: fadeInBottom 1.3s;
     font-family: 'Raleway', sans-serif;
     font-size: 3em;
     text-align: right;
-    font-weight: 200;
+    font-weight: 300;
     color: var(--lnktxt);
 }
 
@@ -180,8 +212,19 @@ nav > ul{
     margin: 0em 0em 1em 0em;
 }
 .post a{
+    font-weight: 600;
     color: var(--lnktxt);
+    transition: 0.2s;
 }
+
+.post a:visited{
+    color: var(--lnkvisited);
+}
+
+.post a:hover{
+    color: var(--lnktxthover);
+}
+
 #progress-image{
     margin-top: 3em;
 }
@@ -263,6 +306,79 @@ nav > ul{
 }
 
 /* PROJECTS */
+
+/* CONTACT PAGE */
+
+.contact-page{
+    border: none;
+    padding: 2rem 5rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    position: absolute;
+    top: 15vh;
+    left: 45vw;
+    width: 30vw;
+    background-color: var(--subbg);
+}
+
+.contact-page>legend{
+    margin: auto;
+    font-size: 1.3em;
+    font-weight: 500;
+    padding: 0.5rem;
+    box-shadow: 0rem 0.2rem 0 var(--lnkvisited);
+    background-color: var(--lnktxt);
+    font-weight: 700;
+    /* box-shadow: -0.1em 0.2em 0em var(--lnktxt); */
+}
+
+.contact-page>label{
+    text-align: center;
+    margin: 0.5em 0;
+}
+
+.contact-page>input{
+    height: 3em;
+    border: none;
+}
+
+.contact-page>button{
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    margin: auto;
+    top: 5vh;
+    width:fit-content;
+    padding: 0.6rem 1rem;
+    color: var(--maintxt);
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: var(--lnktxt);
+    box-shadow: 0rem 0.2rem 0 var(--lnkvisited);
+    border: none;
+    transition: 0.2s;
+}
+
+.contact-page>button:hover{
+    scale: 1.05;
+}
+
+.contact-page>textarea{
+    resize: none;
+    border: none;
+}
+
+/* CONTACT PAGE */
+
+/* FOOTER */
+
+footer>h4{
+    position: fixed;
+    top: 97.5vh;
+    left: 15vw;
+    text-align: center;
+    opacity: 15%;
+}
+/* FOOTER */
 
 /* ANIMATION */
 @keyframes fadeInUp{
@@ -358,13 +474,6 @@ nav > ul{
         display: none;
     }
     #site-mask{
-        position:fixed;
-        width: 100vw;
-        height: 20vh;
-        background: rgb(245,245,245);
-        background: linear-gradient(180deg, #f5f5f5 0%,#f5f5f559 50%, #ffffff00 70%); 
-        mask: linear-gradient(black, black, transparent);
-        backdrop-filter: blur(5px);
         z-index: 0;
         top: 0;
     }
@@ -382,7 +491,7 @@ nav > ul{
     }
     #nav-title{
         font-family: 'DM Sans', sans-serif;
-        font-size: 3em;
+        font-size: 2em;
         font-weight: 700;
         margin-bottom: 2vh;
     }
@@ -391,8 +500,8 @@ nav > ul{
         float: left;
         margin: 0 1em 0 1em;
         font-family: 'Raleway', sans-serif;
-        font-weight: 600;
-        font-size: 1.5em;
+        font-weight: 500;
+        font-size: 1.2em;
         transition: 0.3s;
         width: fit-content;
     }
@@ -421,8 +530,8 @@ nav > ul{
     #blog-title{
         text-align: center;
         width: 50%;
-        margin: 20vh auto 2vh auto;
-        font-size: 1.8em;
+        margin: 25vh auto 2vh auto;
+        font-size: 1.5em;
         font-weight: 700;
     }
     .blog-posts{
@@ -459,9 +568,9 @@ nav > ul{
     }
     .projects>h2{
         width: 100%;
-        top: 20vh;
+        top: 25vh;
         left: 0vw;
-        font-size: 1.8em;
+        font-size: 1.5em;
         font-weight: 700;
         text-align: center;
     }
@@ -486,17 +595,7 @@ nav > ul{
         #border{
             display: none;
         }
-        #site-mask{
-            position:fixed;
-            width: 100vw;
-            height: 20vh;
-            background: rgb(245,245,245);
-            background: linear-gradient(180deg, #f5f5f5 0%,#f5f5f559 50%, #ffffff00 70%); 
-            mask: linear-gradient(black, black, transparent);
-            backdrop-filter: blur(5px);
-            z-index: 0;
-            top: 0;
-        }
+
         .nav-container{
             position: fixed;
             z-index: 1;
@@ -510,18 +609,16 @@ nav > ul{
             color: var(--maintxt);
         }
         #nav-title{
-            font-size: 2em;
+            font-size: 1em;
             margin: 3vh 0 0 0;
         }
         
-        .nav-items > li{
-            margin: 1em 0.5em;
-            font-size: 1.3em;
-
+        .nav-items > li > a{
+            margin: 1em 0em;
+            font-size: 0.75em;
         }
 
         .hero> h1{
-            animation: fadeInUp 1s;
             font-family: 'DM Sans', sans-serif;
             font-size: 5em;
             font-weight: 700;
@@ -532,7 +629,8 @@ nav > ul{
         }
         #blog-title{
             width: 100%;
-            font-size: 1.5em;
+            font-size: 1.2em;
+            margin-top: 20vh;
         }
 
         .post{
@@ -542,15 +640,35 @@ nav > ul{
 
         .about-me{
             font-size: 1em;
+            padding: 0.8em;
         }
         .projects>h2{
-            font-size: 1.5em;
+            font-size: 1.2em;
+            top: 20vh;
         }
         .projects>ul{
-            top: 26vh;
+            top: 29vh;
+            font-size: 0.7em;
         }
         .socials{
             display: none;
         }
+        
     }
+@media only screen and (max-width: 450px){
+        .about-me{
+            padding: 0.7em;
+        }   
+        .nav-items > li{
+            margin: 1em 0.5em;
+            font-size: 1.2em;
+        }
+        
+        .hero> h1{
+            font-family: 'DM Sans', sans-serif;
+            font-size: 4.5em;
+            font-weight: 700;
+        }
+}
+
 /* SCREEN SIZE */
